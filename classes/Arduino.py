@@ -33,8 +33,19 @@ class Arduino:
                         line = line.decode("utf-8")
                         print(line, end="")
 
-            except:
-                print("Cannot get data")
+                if ("play" in self.command):
+                    print("play command")
+                    time.sleep(1.5)
+                    while(self.arduinoSerial.in_waiting > 0):
+                        data = self.arduinoSerial.readlines()
+                        for line in data:
+                            line = line.decode("utf-8")
+                            print(line, end="")
+                        time.sleep(1.5)
+
+            except Exception as e:
+                print("Cannot get data : ", end="")
+                print(e)
         else:
             print("Port disconnected")
     
