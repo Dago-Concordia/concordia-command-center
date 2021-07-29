@@ -49,7 +49,13 @@ class MainWindow(Tk):
     def connectToArduino(self, port):
         self.arduino.connect(port, 115200, .1)
 
+    def window_closed(self):
+        print("Window closed")
+        self.arduino.stop_read_thread()
+        self.destroy()
+
 
 if __name__ == "__main__":
     app = MainWindow()
+    app.protocol("WM_DELETE_WINDOW", app.window_closed)
     app.mainloop()
