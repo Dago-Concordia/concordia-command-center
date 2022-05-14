@@ -28,8 +28,9 @@ class ManualCommandFrame(Frame):
         cmd = self.cmdVar.get()
         self.cmdVar.set("")
         if (cmd != ""):
-            print(cmd)
-            self.ct.sendToArduino(cmd)
+            finalCommand = ("!"+cmd+"#")
+            print(finalCommand)
+            self.ct.sendToArduino(finalCommand)
     
     def sendCommandEnter(self, event):
         self.sendCommand()
