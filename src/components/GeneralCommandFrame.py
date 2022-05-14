@@ -17,12 +17,12 @@ class GeneralCommandFrame(Frame):
         self.initWidget()
     
     def initWidget(self):
-        self.defButton = Button(self, text="DEF", font = "Helvetica 10 bold", width=10, height=2, command=self.defCommand)
+        self.defButton = Button(self, text="DEF", font = "Helvetica 10 bold", width=10, height=1, command=self.defCommand)
         self.defButton.grid(row=0, column=0, padx=(5, 5), pady=(10, 10))
 
 
         # PLAY COMMAND
-        self.playButton = Button(self, text="PLAY", bg="lightgreen", font = "Helvetica 10 bold", width=10, height=2, command=self.playCommand)
+        self.playButton = Button(self, text="PLAY", bg="lightgreen", font = "Helvetica 10 bold", width=10, height=1, command=self.playCommand)
         self.playButton.grid(row=0, column=1, padx=(5, 30), pady=(10, 10))
         
         self.PLAYIDNUM = 2
@@ -52,13 +52,13 @@ class GeneralCommandFrame(Frame):
         self.pageOptionCombo.bind("<<ComboboxSelected>>", self.pageSelected)
         self.stepOptionCombo.bind("<<ComboboxSelected>>", self.stepSelected)
         
-        self.gButton = Button(self, text="G",width=10, height=2, font = "Helvetica 10 bold", command=self.gCommand)
+        self.gButton = Button(self, text="G",width=10, height=1, font = "Helvetica 10 bold", command=self.gCommand)
         self.gButton.grid(row=2, column=0, padx=(5, 0), pady=(10, 10))
 
 
-        self.prevButton = Button(self, text="<<",width=10, height=2, font = "Helvetica 10 bold", command=self.prevCommand)
+        self.prevButton = Button(self, text="<<",width=10, height=1, font = "Helvetica 10 bold", command=self.prevCommand)
         self.prevButton.grid(row=2, column=1, padx=(5, 0), pady=(10, 10))
-        self.nextButton = Button(self, text=">>",width=10, height=2, font = "Helvetica 10 bold", command=self.nextCommand)
+        self.nextButton = Button(self, text=">>",width=10, height=1, font = "Helvetica 10 bold", command=self.nextCommand)
         self.nextButton.grid(row=2, column=2, padx=(5, 5), pady=(10, 10))
 
     def defCommand(self):

@@ -19,15 +19,15 @@ class WriteCommandFrame(Frame):
     
     def initWidget(self):
         # get
-        self.getButton = Button(self, text="GET", font = "Helvetica 10 bold", width=10, height=2, bg='lightblue', command=self.getCommand)
+        self.getButton = Button(self, text="GET", font = "Helvetica 10 bold", width=10, height=1, bg='lightblue', command=self.getCommand)
         self.getButton.grid(row=0, column=0, padx=(5, 30), pady=(10, 10))
 
         # SAVE
-        self.saveButton = Button(self, text="SAVE", font = "Helvetica 10 bold", width=10, height=2, bg='lightgreen', command=self.saveCommand)
+        self.saveButton = Button(self, text="SAVE", font = "Helvetica 10 bold", width=10, height=1, bg='lightgreen', command=self.saveCommand)
         self.saveButton.grid(row=0, column=1, padx=(30, 5), pady=(10, 10))
 
         # WRITE STEP COMMAND
-        self.writeStepButton = Button(self, text="WRITE STEP", font = "Helvetica 10 bold", width=10, height=2, command=self.writeStepCommand)
+        self.writeStepButton = Button(self, text="WRITE STEP", font = "Arial 10 bold", width=10, height=1, command=self.writeStepCommand)
         self.writeStepButton.grid(row=1, column=0, padx=(5, 5), pady=(10, 10))
 
         self.writeStepCommadOption = ["w", "wh", "wa", "wra", "wla", "whip", "wf", "wrf", "wlf"]
@@ -45,7 +45,7 @@ class WriteCommandFrame(Frame):
         
 
         # WRITE PAGE COMMAND
-        self.writePageButton = Button(self, text="WRITE PAGE", font = "Helvetica 10 bold", width=10, height=2, command=self.writePageCommand)
+        self.writePageButton = Button(self, text="WRITE PAGE", font = "Helvetica 10 bold", width=10, height=1, command=self.writePageCommand)
         self.writePageButton.grid(row=2, column=0, padx=(5, 5), pady=(10, 10))
 
         self.writePageCommadOption = ["wBP", "wBPra", "wBPla", "wBPhip", "wBPf", "wBPrf", "wBPlf"]

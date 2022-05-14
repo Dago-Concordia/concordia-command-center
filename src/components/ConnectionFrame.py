@@ -18,17 +18,17 @@ class ConnectionFrame(Frame):
         self.initWidget()
     
     def initWidget(self):
-        self.refreshButton = Button(self, text="Refresh", font = "Helvetica 10 bold", width=10, bg='blue', command=self.refresh)
-        self.refreshButton.grid(row=0, column=0, padx=(5, 5), pady=(10, 10))
+        self.refreshButton = Button(self, text="Refresh", font = "Helvetica 8 bold", width=10, height=1, bg='blue', fg='white', command=self.refresh)
+        self.refreshButton.grid(row=0, column=0, padx=(5, 5), pady=5)
 
-        self.labelTextPort = Label(self, text="Port : ", font = "Helvetica 14", bg='lightblue')
-        self.labelTextPort.grid(row=0, column=1, padx=(5, 5), pady=(10, 10))
+        self.labelTextPort = Label(self, text="Port : ", font = "Helvetica 10", bg='lightblue')
+        self.labelTextPort.grid(row=0, column=1, padx=(5, 5), pady=5)
  
         self.portOptionCombo = ttk.Combobox(self, values=[], state="readonly", font = "Helvetica 12", width=20)
-        self.portOptionCombo.grid(row=0, column=2, padx=(5, 5), pady=(10, 10))
+        self.portOptionCombo.grid(row=0, column=2, padx=(5, 5), pady=5)
 
-        self.connectButton = Button(self, text="Connect", font = "Helvetica 10 bold", width=10, bg='lightgreen', command=self.connect)
-        self.connectButton.grid(row=0, column=3, padx=(5, 5), pady=(10, 10))
+        self.connectButton = Button(self, text="Connect", font = "Helvetica 8 bold", width=10, bg='lightgreen', command=self.connect)
+        self.connectButton.grid(row=0, column=3, padx=(5, 5), pady=5)
         
     def refresh(self):
         cons = self.getPortList()

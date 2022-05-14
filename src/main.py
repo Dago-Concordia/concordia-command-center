@@ -15,33 +15,46 @@ class MainWindow(Tk):
         # self.geometry("1024x768")
         self.resizable(False, False)
         # self.iconbitmap(r'img/dago_concordia.ico')
-        self.config(bg='gray35')
+        self.config(bg='white')
+        self.showController = True
 
-        colorEven = 'gray35'
-        colorOdd = 'gray45'
+        colorEven = 'white'
+        colorOdd = 'white'
 
         self.arduino = Arduino()
 
-        self.container = Frame(self, bd=5, bg='gray35')
+        self.container = Frame(self, bd=5)
         self.container.pack(side="top", fill="both", expand=True)
         self.container.grid_rowconfigure(0, weight=1)
         self.container.grid_columnconfigure(0, weight=1)
 
         self.connectionFrame = ConnectionFrame(self.container, self, color=colorOdd)
-        self.connectionFrame.gridMain(row=0, column=0, pady=(10,10), sticky='nswe')
+        self.connectionFrame.gridMain(row=0, column=0, pady=2, sticky='nswe')
 
         self.generalCommandFrame = GeneralCommandFrame(self.container, self, color=colorEven)
-        self.generalCommandFrame.gridMain(row=1, column=0, pady=(10, 10), sticky = 'nswe')
+        self.generalCommandFrame.gridMain(row=1, column=0, pady=2, sticky = 'nswe')
 
         self.offCommandFrame = OffCommandFrame(self.container, self, color=colorOdd)
-        self.offCommandFrame.gridMain(row=2, column=0, pady=(10, 10), sticky = 'nswe')
+        self.offCommandFrame.gridMain(row=2, column=0, pady=2, sticky = 'nswe')
         
         self.writeCommandFrame = WriteCommandFrame(self.container, self, colorEven)
-        self.writeCommandFrame.gridMain(row=3, column=0, pady=(10, 10), sticky = 'nswe')
+        self.writeCommandFrame.gridMain(row=3, column=0, pady=2, sticky = 'nswe')
 
         self.manualCommandFrame = ManualCommandFrame(self.container, self, color=colorOdd)
-        self.manualCommandFrame.gridMain(row=4, column=0, columnspan=2, pady=(10, 10), sticky = 'nswe')
+        self.manualCommandFrame.gridMain(row=4, column=0, columnspan=2, pady=2, sticky = 'nswe')
 
+        self.showControllerToggle()
+    
+    def showControllerToggle(self):
+        self.showController = not self.showController
+        if (not self.showController):
+          self.generalCommandFrame.gridMain_forget()
+          self.offCommandFrame.gridMain_forget()
+          self.writeCommandFrame.gridMain_forget()
+        else:
+          self.generalCommandFrame.gridMain(row=1, column=0, pady=2, sticky = 'nswe')
+          self.offCommandFrame.gridMain(row=2, column=0, pady=2, sticky = 'nswe')
+          self.writeCommandFrame.gridMain(row=3, column=0, pady=2, sticky = 'nswe')
 
     def sendToArduino(self, cmd):
         self.arduino.sendCommand(cmd)
