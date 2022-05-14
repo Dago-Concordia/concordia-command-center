@@ -16,6 +16,7 @@ class ConnectionFrame(Frame):
         self.grid(row=0, column=0)
 
         self.initWidget()
+        self.refresh()
     
     def initWidget(self):
         self.refreshButton = Button(self, text="Refresh", font = "Helvetica 8 bold", width=10, height=1, bg='blue', fg='white', command=self.refresh)
